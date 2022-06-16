@@ -129,6 +129,6 @@ public class CollectQQData {
         resultMap.put("provincesCompareMap",provincesCompareMap);
         resultMap.put("citysDetailMap",citysDetailMap);
 
-        return R.ok().data(chinaLastAdd).data(provincesCompareMap).data(citysDetailMap);
+        return R.ok().data(resultMap);
     }
 }
