@@ -1,0 +1,11 @@
+
+
+    .box{
+        /* width: 500px; */
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+    .login{
+        height: 100%;
+        background-image: url('../../static/img/alice.png');
+    }
