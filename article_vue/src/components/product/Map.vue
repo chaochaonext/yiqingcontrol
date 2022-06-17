@@ -90,14 +90,14 @@
                         } else {
                             console.log(resp)
                             this.QQData = resp.data;
-                            var provincesMap = new Map(Object.entries(this.QQData.provincesCompareMap))
-                            for(var [key,values] of provincesMap){
-                                var name = key;
-                                var value = values.confirmAdd
+                            var children = this.QQData.data.diseaseh5Shelf.areaTree[0].children;
+                            console.log(children)
+                            for(var i = 0;i < children.length;i++){
+                                var name = children[i].name;
+                                var value = children[i].total.nowConfirm;
                                 console.log(name,value)
                                 this.provinces.push({name,value})
                             }
-                            console.log(this.provinces)
                             this.buildMap();
                         }
                     } else {

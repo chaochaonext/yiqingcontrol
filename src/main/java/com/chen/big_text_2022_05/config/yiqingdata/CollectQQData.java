@@ -23,6 +23,7 @@ public class CollectQQData {
     public static String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.25 Safari/537.36 Core/1.70.3741.400 QQBrowser/10.5.3863.400";
 
     public static R getAllData() throws IOException {
+        //更全：https://api.inews.qq.com/newsqa/v1/query/inner/publish/modules/list?modules=localCityNCOVDataList,diseaseh5Shelf
         String resultBody = Jsoup.connect("https://view.inews.qq.com/g2/getOnsInfo?name=disease_other")
                 .ignoreContentType(true)
                 .execute().body();
