@@ -1,5 +1,12 @@
 <template>
-    <div class="">
-        <router-view></router-view>
+    <div>
+        <Map></Map>
     </div>
 </template>
+
+<script>
+import Map from '../Map.vue'
+export default {
+    components:{ Map },
+}
+</script>
