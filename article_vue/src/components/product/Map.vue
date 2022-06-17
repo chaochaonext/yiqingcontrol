@@ -1,7 +1,5 @@
 <template>
-    <div class="animated fadeIn">
-        <div>数据来源自：https://api.inews.qq.com/newsqa/v1/query/inner/publish/modules/list?modules=localCityNCOVDataList,diseaseh5Shelf</div>
-        <div>最近更新于：{{this.lastDate}}</div>
+    <div class="animated fadeIn" style="background-color: #66b2ff">
         <!-- <Row> -->
             <div id="main"></div>
         <!-- </Row> -->
@@ -11,12 +9,9 @@
     import echarts from 'echarts'
     import {postRequest,getRequest} from '@/utils/api'
     import 'echarts/map/js/china.js'
-    import store from '../store/index'
-
     export default {
         data () {
             return {
-                lastDate:'',
                 QQData:{
 
                 },
@@ -25,7 +20,6 @@
                 ]
             }
         },
-        store,
         methods: {
             //初始化地图
             buildMap(){
@@ -74,7 +68,7 @@
                     },
                     series : [
                         {
-                            name: '现有病例',
+                            name: '新增病例',
                             type: 'map',
                             geoIndex: 0,
                             // 此处为展示数据的位置
@@ -96,15 +90,14 @@
                         } else {
                             console.log(resp)
                             this.QQData = resp.data;
-                            this.lastDate = this.QQData.data.diseaseh5Shelf.lastUpdateTime;
                             var children = this.QQData.data.diseaseh5Shelf.areaTree[0].children;
                             console.log(children)
                             for(var i = 0;i < children.length;i++){
                                 var name = children[i].name;
                                 var value = children[i].total.nowConfirm;
+                                console.log(name,value)
                                 this.provinces.push({name,value})
                             }
-                            this.$store.dispatch("initQQData",this.QQData);
                             this.buildMap();
                         }
                     } else {
