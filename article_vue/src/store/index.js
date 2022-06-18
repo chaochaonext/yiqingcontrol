@@ -7,24 +7,18 @@ const store = new Vuex.Store({
         QQData:{
 
         },
+        provinces:[],
     },
     mutations:{
         INIT_QQ_DATA(state,data){
             state.QQData = data;
+            state.provinces = data.data.diseaseh5Shelf.areaTree[0].children
         },
-        GET_QQ_DATA(state){
-            console.log(state.QQData);
-            return state.QQData;
-            
-        }
     },
     actions:{
         initQQData(context,data){
             context.commit("INIT_QQ_DATA",data);
         },
-        getQQData(context){
-            return context.commit("GET_QQ_DATA");
-        }
     },
 })
 
