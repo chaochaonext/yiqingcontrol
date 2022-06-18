@@ -17,12 +17,8 @@
         data () {
             return {
                 lastDate:'',
-                QQData:{
-
-                },
-                provinces:[
-                    {name:"南海诸岛",value:1000}
-                ]
+                QQData:{},
+                provinces:[],
             }
         },
         store,
@@ -98,12 +94,12 @@
                             this.QQData = resp.data;
                             this.lastDate = this.QQData.data.diseaseh5Shelf.lastUpdateTime;
                             var children = this.QQData.data.diseaseh5Shelf.areaTree[0].children;
-                            console.log(children)
                             for(var i = 0;i < children.length;i++){
                                 var name = children[i].name;
                                 var value = children[i].total.nowConfirm;
                                 this.provinces.push({name,value})
                             }
+                            console.log(this.provinces)
                             this.$store.dispatch("initQQData",this.QQData);
                             this.buildMap();
                         }

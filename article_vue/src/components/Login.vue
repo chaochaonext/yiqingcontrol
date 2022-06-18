@@ -31,7 +31,7 @@ export default {
             Message.warning({ message: resp.msg });
           } else {
             console.log(resp)
-            this.$router.push("Main")
+            this.$router.push("/")
           }
         } else {
           return false;

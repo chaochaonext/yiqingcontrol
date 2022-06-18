@@ -13,7 +13,11 @@
     <el-table-column prop="mediumRiskAreaNum" label="中风险地区">
     </el-table-column>
     <el-table-column prop="dead" label="累计死亡"> </el-table-column>
-    <el-table-column prop="children" label="各省份信息"><a @click="toProvinces()">详情</a> </el-table-column>
+    <el-table-column prop="children" label="各省份信息">
+      <el-button type="primary" size="min" plain @click="toProvinces()"
+        >详细信息
+      </el-button>
+    </el-table-column>
   </el-table>
 </template>
 
@@ -29,14 +33,14 @@ export default {
       var data = this.$store.state.QQData.data.diseaseh5Shelf.chinaTotal;
       this.tableData.push(data);
     },
-    toProvinces(){
-      this.$router.push('/province')
-    }
+    toProvinces() {
+      this.$router.push("/province");
+    },
   },
   mounted() {
-    setTimeout(()=>{
+    setTimeout(() => {
       this.initData();
-    },1000)
+    }, 1000);
   },
 };
 </script>

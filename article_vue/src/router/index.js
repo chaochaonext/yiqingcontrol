@@ -4,6 +4,7 @@ import Login from '@/components/Login'
 import Register from '@/components/Register'
 import Index from '@/components/Index'
 import Province from '@/components/product/Province'
+import Citys from '@/components/product/Citys'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/province',
       name: 'province',
       component: Province
+    },
+    {
+      path: '/city',
+      name: 'city',
+      component: Citys
     },
   ],
 })
