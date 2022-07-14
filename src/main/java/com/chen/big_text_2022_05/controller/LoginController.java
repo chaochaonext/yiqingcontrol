@@ -1,7 +1,5 @@
 package com.chen.big_text_2022_05.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.chen.big_text_2022_05.entity.User;
 import com.chen.big_text_2022_05.entity.UserLogin;
 import com.chen.big_text_2022_05.entity.result.UserLoginResult;
 import com.chen.big_text_2022_05.exception.Assert;
@@ -14,7 +12,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 
 /**
