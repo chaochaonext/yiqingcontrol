@@ -20,7 +20,7 @@ export default {
     return {
       lastDate: "",
       QQData: {},
-      provinces: [{ name: "南海诸岛", value: 1000 }],
+      provinces: [{ name: "南海诸岛", value: 1000 }]
     };
   },
   store,
@@ -32,7 +32,7 @@ export default {
         tooltip: {
           formatter: function (params, ticket, callback) {
             return (
-              params.seriesName + "<br />" + params.name + "：" + params.value+params.highRiskAreaNum
+              params.seriesName + "<br />" + params.name + "：" + params.value
             );
           }, //数据格式化
         },
@@ -83,7 +83,7 @@ export default {
         ],
       };
       myChart.setOption(option);
-      console.log("...");
+      console.log(this.provinces);
     },
     //初始化数据
     initData() {
@@ -96,7 +96,7 @@ export default {
             this.QQData = resp.data;
             this.$store.dispatch("initQQData", this.QQData);
             this.lastDate = this.QQData.data.diseaseh5Shelf.lastUpdateTime;
-            var children = this.QQData.data.diseaseh5Shelf.areaTree[0].children;
+            //var children = this.QQData.data.diseaseh5Shelf.areaTree[0].children;
             var data = this.$store.state.provinces;
             for (var i = 0; i < data.length; i++) {
               
