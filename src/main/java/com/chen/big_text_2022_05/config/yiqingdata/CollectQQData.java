@@ -8,6 +8,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.chen.big_text_2022_05.result.R;
 import org.jsoup.Jsoup;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import java.io.IOException;
 import java.util.Date;
@@ -19,10 +21,16 @@ import java.util.Map;
  * @Date: 2022/6/13 17:39
  */
 @Configuration
+@EnableScheduling
 public class CollectQQData {
     public static String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.25 Safari/537.36 Core/1.70.3741.400 QQBrowser/10.5.3863.400";
 
+    //3.添加定时任务
+    @Scheduled(cron = "0/5 * * * * ?")
+    //或直接指定时间间隔，例如：5秒
+    //@Scheduled(fixedRate=5000)
     public static R getAllData() throws IOException {
+        System.out.println("======================\n定时任务执行中");
         //更全：https://api.inews.qq.com/newsqa/v1/query/inner/publish/modules/list?modules=localCityNCOVDataList,diseaseh5Shelf
         String resultBody = Jsoup.connect("https://view.inews.qq.com/g2/getOnsInfo?name=disease_other")
                 .ignoreContentType(true)
@@ -129,7 +137,7 @@ public class CollectQQData {
         resultMap.put("chinaLastAdd",chinaLastAdd);
         resultMap.put("provincesCompareMap",provincesCompareMap);
         resultMap.put("citysDetailMap",citysDetailMap);
-
+        System.out.println("======================");
         return R.ok().data(resultMap);
     }
 }
