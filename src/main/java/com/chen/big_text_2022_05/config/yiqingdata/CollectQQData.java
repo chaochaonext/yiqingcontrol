@@ -32,7 +32,7 @@ public class CollectQQData {
     public static R getAllData() throws IOException {
         System.out.println("======================\n定时任务执行中");
         //更全：https://api.inews.qq.com/newsqa/v1/query/inner/publish/modules/list?modules=localCityNCOVDataList,diseaseh5Shelf
-        String resultBody = Jsoup.connect("https://view.inews.qq.com/g2/getOnsInfo?name=disease_other")
+        String resultBody = Jsoup.connect("https://api.inews.qq.com/newsqa/v1/query/inner/publish/modules/list?modules=localCityNCOVDataList,diseaseh5Shelf")
                 .ignoreContentType(true)
                 .execute().body();
         JSONObject jsonObject = JSON.parseObject(resultBody);
