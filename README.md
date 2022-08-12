@@ -1,4 +1,4 @@
-# big_text_2022_05
+# yiqingcontrol
 
 #### 介绍
 一个疫情数据可视化界面
